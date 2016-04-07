@@ -43,8 +43,6 @@ $(document).ready(function() {
 
 
   $(".operators").click(function() {
-    firstNumber = input;
-    input = "";
 
     operator = $(this).text();
 
@@ -61,8 +59,7 @@ $(document).ready(function() {
       case "/":
         total = (+secondNumber) / (+firstNumber);
         break;
-    }
-    screen.text(total.toString());
+    }    
     secondNumber = firstNumber;
     firstNumber = "";
 

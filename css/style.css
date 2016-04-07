@@ -26,7 +26,11 @@ body, div, a {
 }
 
 #numbers, #toprow {
-	margin: auto;
+	margin: auto;	
+	-ms-user-select: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
 }
 
 #toprow a {
