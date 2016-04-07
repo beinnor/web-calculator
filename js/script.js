@@ -5,6 +5,7 @@ $(document).ready(function() {
   var firstNumber = "";
   var secondNumber = "";
   var operator = "";
+  var clearScreenFlag = false;
   var screen = $("#screen");
   screen.text(0);
 
@@ -13,6 +14,7 @@ $(document).ready(function() {
   var total = 0;
   var totalLog = $("#total");
   var opLog = $("#op");
+  var clearScreenDiv = $("#clearScreenDiv");
 
   debug();
 
@@ -20,6 +22,11 @@ $(document).ready(function() {
   //Add your .click() here!
   $("#numbers a").not("#clear, #clearall").click(function() {
 
+    if (clearScreenFlag) {
+      firstNumber = "";
+      clearScreenFlag = false;
+      // TODO: AC here, make function
+    }
 
     firstNumber += $(this).text();
 
@@ -97,6 +104,8 @@ $(document).ready(function() {
     screen.text(firstNumber);
     secondNumber = "";
 
+    clearScreenFlag = true;
+
     debug();
 
   });
@@ -139,6 +148,7 @@ $(document).ready(function() {
     secondNumberLog.text("secondNumber: " + secondNumber);
     totalLog.text("total: " + total);
     opLog.text("Operator: " + operator);
+    clearScreenDiv.text("clearScreenFlag: " + clearScreenFlag);
   }
 
 
