@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
 
-  var total = 0;
+
   var firstNumber = "";
   var secondNumber = "";
   var operator = "";
@@ -15,8 +15,7 @@ $(document).ready(function() {
 
   firstNumberLog.text("firstNumber: " + firstNumber);
   secondNumberLog.text("secondNumber: " + secondNumber);
-  totalLog.text("Total: " + total);
-  opLog.text("Total: " + operator);
+  opLog.text("Operator: " + operator);
 
 
   //Add your .click() here!
@@ -36,110 +35,92 @@ $(document).ready(function() {
 
     firstNumberLog.text("firstNumber: " + firstNumber);
     secondNumberLog.text("secondNumber: " + secondNumber);
-    totalLog.text("Total: " + total);
-    opLog.text("Total: " + operator);
+    opLog.text("Operator: " + operator);
 
   });
 
 
   $(".operators").click(function() {
 
+
+
     operator = $(this).text();
 
-    switch (operator) {
-      case "+":
-        total = (+secondNumber) + (+firstNumber);
-        break;
-      case "-":
-        total = (+secondNumber) - (+firstNumber);
-        break;
-      case "*":
-        total = (+secondNumber) * (+firstNumber);
-        break;
-      case "/":
-        total = (+secondNumber) / (+firstNumber);
-        break;
-    }    
-    secondNumber = firstNumber;
+    if (secondNumber === "") {
+
+      secondNumber = firstNumber;
+
+    } else {
+
+      switch (operator) {
+        case "+":
+          secondNumber = (+secondNumber) + (+firstNumber);
+          break;
+        case "-":
+          secondNumber = (+secondNumber) - (+firstNumber);
+          break;
+        case "*":
+          secondNumber = (+secondNumber) * (+firstNumber);
+          break;
+        case "/":
+          secondNumber = (+secondNumber) / (+firstNumber);
+          break;
+      }
+    }
+
     firstNumber = "";
 
 
 
     firstNumberLog.text("firstNumber: " + firstNumber);
     secondNumberLog.text("secondNumber: " + secondNumber);
-    totalLog.text("Total: " + total);
-    opLog.text("Total: " + operator);
+    opLog.text("Operator: " + operator);
 
   });
 
   $("#equals").click(function() {
 
 
-    if (secondNumber !== "") {
-      switch (operator) {
-        case "+":
-          total = (+secondNumber) + (+firstNumber);
-          break;
-        case "-":
-          total = (+secondNumber) - (+firstNumber);
-          break;
-        case "*":
-          total = (+secondNumber) * (+firstNumber);
-          break;
-        case "/":
-          total = (+secondNumber) / (+firstNumber);
-          break;
-      }
-    } else {
-      switch (operator) {
-        case "+":
-          total = (+total) + (+firstNumber);
-          break;
-        case "-":
-          total = (+total) - (+firstNumber);
-          break;
-        case "*":
-          total = (+total) * (+firstNumber);
-          break;
-        case "/":
-          total = (+total) / (+firstNumber);
-          break;
-      }
+
+    switch (operator) {
+      case "+":
+        firstNumber = (+secondNumber) + (+firstNumber);
+        break;
+      case "-":
+        firstNumber = (+secondNumber) - (+firstNumber);
+        break;
+      case "*":
+        firstNumber = (+secondNumber) * (+firstNumber);
+        break;
+      case "/":
+        firstNumber = (+secondNumber) / (+firstNumber);
+        break;
     }
 
-    screen.text(total);
-    firstNumber = "";
+
+    screen.text(firstNumber);
+    secondNumber = "";
 
     firstNumberLog.text("firstNumber: " + firstNumber);
     secondNumberLog.text("secondNumber: " + secondNumber);
-    totalLog.text("Total: " + total);
-    opLog.text("Total: " + operator);
+    opLog.text("Operator: " + operator);
 
   });
 
 
   $("#clear").click(function() {
 
+
+
     firstNumber = "";
+    screen.text("0");
 
-    if (secondNumber === "") {
-      secondNumber = "";
-      total = 0;
-      screen.text("0");
 
-    } else if (secondNumber !== "" && total !== 0) {
-      secondNumber = "";
-      total = 0;
-      screen.text("0");
-    } else {
-      screen.text(total.toString());
-    }
 
 
     firstNumberLog.text("firstNumber: " + firstNumber);
     secondNumberLog.text("secondNumber: " + secondNumber);
-    totalLog.text("Total: " + total);
-    opLog.text("Total: " + operator);
+    opLog.text("Operator: " + operator);
 
   });
 
@@ -147,14 +128,12 @@ $(document).ready(function() {
 
     secondNumber = "";
     firstNumber = "";
-    total = 0;
     operator = "";
     screen.text("0");
 
     firstNumberLog.text("firstNumber: " + firstNumber);
     secondNumberLog.text("secondNumber: " + secondNumber);
-    totalLog.text("Total: " + total);
-    opLog.text("Total: " + operator);
+    opLog.text("Operator: " + operator);
 
   });
 
