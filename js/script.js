@@ -110,10 +110,16 @@ $(document).ready(function() {
 
   $("#clear").click(function() {
 
+    if (secondNumber === "") {
+      firstNumber = "";
+      operator = "";
+      screen.text("0");
+    } else {
+      firstNumber = "";
+      screen.text("0");
+    }
 
 
-    firstNumber = "";
-    screen.text("0");
 
 
 
