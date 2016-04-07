@@ -4,6 +4,7 @@ $(document).ready(function() {
   var total = 0;
   var firstNumber = "";
   var secondNumber = "";
+  var input = "";
   var operator = "";
   var screen = $("#screen");
   screen.text(0);
@@ -23,15 +24,15 @@ $(document).ready(function() {
   $("#numbers a").not("#clear, #clearall").click(function() {
 
 
-    firstNumber += $(this).text();
+    input += $(this).text();
 
 
 
-    if (firstNumber.length <= 9) {
-      screen.text(firstNumber);
+    if (input.length <= 9) {
+      screen.text(input);
     } else {
       screen.text("Error");
-      firstNumber = "";
+      input = "";
     }
 
     firstNumberLog.text("firstNumber: " + firstNumber);
@@ -43,11 +44,30 @@ $(document).ready(function() {
 
 
   $(".operators").click(function() {
-
+    firstNumber = input;
+    input = "";
 
     operator = $(this).text();
+
+    switch (operator) {
+      case "+":
+        total = (+secondNumber) + (+firstNumber);
+        break;
+      case "-":
+        total = (+secondNumber) - (+firstNumber);
+        break;
+      case "*":
+        total = (+secondNumber) * (+firstNumber);
+        break;
+      case "/":
+        total = (+secondNumber) / (+firstNumber);
+        break;
+    }
+    screen.text(total.toString());
     secondNumber = firstNumber;
     firstNumber = "";
+
+
 
     firstNumberLog.text("firstNumber: " + firstNumber);
     secondNumberLog.text("secondNumber: " + secondNumber);
