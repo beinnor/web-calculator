@@ -10,12 +10,11 @@ $(document).ready(function() {
 
   var firstNumberLog = $("#first");
   var secondNumberLog = $("#second");
+  var total = 0;
   var totalLog = $("#total");
   var opLog = $("#op");
 
-  firstNumberLog.text("firstNumber: " + firstNumber);
-  secondNumberLog.text("secondNumber: " + secondNumber);
-  opLog.text("Operator: " + operator);
+  debug();
 
 
   //Add your .click() here!
@@ -33,9 +32,7 @@ $(document).ready(function() {
       firstNumber = "";
     }
 
-    firstNumberLog.text("firstNumber: " + firstNumber);
-    secondNumberLog.text("secondNumber: " + secondNumber);
-    opLog.text("Operator: " + operator);
+    debug();
 
   });
 
@@ -72,9 +69,7 @@ $(document).ready(function() {
 
 
 
-    firstNumberLog.text("firstNumber: " + firstNumber);
-    secondNumberLog.text("secondNumber: " + secondNumber);
-    opLog.text("Operator: " + operator);
+    debug();
 
   });
 
@@ -97,13 +92,12 @@ $(document).ready(function() {
         break;
     }
 
+    total = firstNumber;
 
     screen.text(firstNumber);
     secondNumber = "";
 
-    firstNumberLog.text("firstNumber: " + firstNumber);
-    secondNumberLog.text("secondNumber: " + secondNumber);
-    opLog.text("Operator: " + operator);
+    debug();
 
   });
 
@@ -124,9 +118,7 @@ $(document).ready(function() {
 
 
 
-    firstNumberLog.text("firstNumber: " + firstNumber);
-    secondNumberLog.text("secondNumber: " + secondNumber);
-    opLog.text("Operator: " + operator);
+    debug();
 
   });
 
@@ -137,11 +129,17 @@ $(document).ready(function() {
     operator = "";
     screen.text("0");
 
-    firstNumberLog.text("firstNumber: " + firstNumber);
-    secondNumberLog.text("secondNumber: " + secondNumber);
-    opLog.text("Operator: " + operator);
+    debug();
+
 
   });
+
+  function debug() {
+    firstNumberLog.text("firstNumber: " + firstNumber);
+    secondNumberLog.text("secondNumber: " + secondNumber);
+    totalLog.text("total: " + total);
+    opLog.text("Operator: " + operator);
+  }
 
 
 });
