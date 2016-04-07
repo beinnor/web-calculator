@@ -4,7 +4,6 @@ $(document).ready(function() {
   var total = 0;
   var firstNumber = "";
   var secondNumber = "";
-  var input = "";
   var operator = "";
   var screen = $("#screen");
   screen.text(0);
@@ -24,15 +23,15 @@ $(document).ready(function() {
   $("#numbers a").not("#clear, #clearall").click(function() {
 
 
-    input += $(this).text();
+    firstNumber += $(this).text();
 
 
 
-    if (input.length <= 9) {
-      screen.text(input);
+    if (firstNumber.length <= 9) {
+      screen.text(firstNumber);
     } else {
       screen.text("Error");
-      input = "";
+      firstNumber = "";
     }
 
     firstNumberLog.text("firstNumber: " + firstNumber);
